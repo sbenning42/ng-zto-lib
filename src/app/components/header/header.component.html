@@ -1,0 +1,35 @@
+<mat-toolbar class="mat-elevation-z5" color="{{ color ? color : undefined }}">
+  <ng-container *ngFor="let row of rows$|async; let rowIndex = index">
+    <mat-toolbar-row>
+
+      <ng-container *ngIf="row.title !== undefined">
+        <span class="app-header-title"(click)="rowClicked($event, row, rowIndex)">
+          {{ row.title }} got {{ size }} products !
+        </span>
+      </ng-container>
+
+      <app-flex-spacer *ngIf="row.title !== undefined"></app-flex-spacer>
+
+      <ng-container *ngFor="let action of row.leftActions; let actionIndex = index">
+        <button mat-button (click)="actionClicked($event, action, actionIndex)" [color]="action?.color">
+          <mat-icon *ngIf="action.icon" class="app-header-icon">{{ action.icon }}</mat-icon>
+          <span *ngIf="action.name">{{ action.name }}</span>
+        </button>
+      </ng-container>
+
+      <ng-container *ngIf="row.rightActions !== undefined">
+        <app-flex-spacer></app-flex-spacer>
+        <app-flex-spacer></app-flex-spacer>
+        <app-flex-spacer></app-flex-spacer>
+      </ng-container>
+
+      <ng-container *ngFor="let action of row.rightActions; let actionIndex = index">
+        <button mat-button (click)="actionClicked($event, action, actionIndex)" [color]="action?.color">
+          <mat-icon *ngIf="action.icon" class="app-header-icon">{{ action.icon }}</mat-icon>
+          <span *ngIf="action.name">{{ action.name }}</span>
+        </button>
+      </ng-container>
+
+    </mat-toolbar-row>
+  </ng-container>
+</mat-toolbar>

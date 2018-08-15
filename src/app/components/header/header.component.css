@@ -1,0 +1,10 @@
+.app-header-title {
+    cursor: pointer;
+}
+.app-header-icon {
+    padding: 0 14px;
+    cursor: pointer;
+}
+.spacer {
+    flex: 1;
+}

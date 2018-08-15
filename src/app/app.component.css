@@ -1,0 +1,10 @@
+.shadow-box {
+    height: 8px;
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+}
